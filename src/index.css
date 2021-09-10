@@ -1,13 +1,40 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.navbar{
+  @apply h-15 bg-primary px-4 border-b-2 border-border-color
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar-nav{
+  @apply w-full h-full flex justify-end
+}
+
+.nav-item{
+  width: calc(60px * 0.8);
+  @apply flex justify-center items-center
+}
+
+.icon-button{
+  --button-size: calc(60px * 0.5);
+  width: var(--button-size);
+  height: var(--button-size);
+  @apply bg-secondary rounded-full flex justify-center items-center p-1.5 m-0.5 transition duration-300 hover:bg-text-color
+}
+
+.dropdown{
+  @apply absolute top-14.5 w-75 transform -translate-x-45 bg-primary border-border-color border-solid rounded-lg p-4 overflow-hidden transition-height duration-500 ease-in-out
+}
+
+.menu-item {
+  @apply h-50 flex items-center rounded-lg transition-background duration-500 p-2
+}
+
+.menu-item .icon-button{
+  @apply mr-2
+}
+
+.icon-right{
+  @apply ml-auto text-white
 }
