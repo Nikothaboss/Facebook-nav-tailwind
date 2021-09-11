@@ -24,7 +24,7 @@
 }
 
 .dropdown{
-  @apply absolute top-14.5 w-75 transform -translate-x-45 bg-primary border-border-color border-solid rounded-lg p-4 overflow-hidden transition-height duration-500 ease-in-out text-white
+  @apply absolute top-14.5 w-75 transform -translate-x-45 bg-primary border-border-color border-solid rounded-lg p-4 overflow-hidden transition-all duration-1000 ease-in-out text-white
 }
 
 .menu-item {
@@ -37,4 +37,47 @@
 
 .icon-right{
   @apply ml-auto text-white
+}
+
+.menu{
+  width: 100%;
+}
+
+.menu-primary-enter{
+  position: absolute;
+  transform: translateX(-110%);
+}
+
+.menu-primary-enter-active{
+  transform: translateX(0%);
+  transition: all 1000ms ease-in-out;
+}
+
+.menu-primary-exit{
+  position: absolute;
+
+}
+
+.menu-primary-exit-active{
+  transform: translateX(-110%);
+  transition: all 1000ms ease;
+}
+
+.menu-secondary-enter{
+  transform: translateX(110%);
+}
+
+.menu-secondary-enter-active{
+  transform: translateX(0%);
+  transition: all 1000ms ease;
+}
+
+.menu-secondary-exit{
+  position: absolute;
+
+}
+
+.menu-secondary-exit-active{
+  transform: translateX(110%);
+  transition: all 1000ms ease;
 }
