@@ -24,7 +24,7 @@
 }
 
 .dropdown{
-  @apply absolute top-14.5 w-75 transform -translate-x-45 bg-primary border-border-color border-solid rounded-lg p-4 overflow-hidden transition-height duration-500 ease-in-out
+  @apply absolute top-14.5 w-75 transform -translate-x-45 bg-primary border-border-color border-solid rounded-lg p-4 overflow-hidden transition-height duration-500 ease-in-out text-white
 }
 
 .menu-item {

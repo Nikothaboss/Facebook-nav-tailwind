@@ -14,7 +14,8 @@ const DropdownMenu = () => {
 
     return (
         <div className="dropdown">
-            <DropdownItem leftIcon="🥰" rightIcon="v">Whatever</DropdownItem>
+            <DropdownItem leftIcon="🥰" rightIcon="↕">Whatever</DropdownItem>
+            <DropdownItem>Whatever</DropdownItem>
         </div>
     )
 }
