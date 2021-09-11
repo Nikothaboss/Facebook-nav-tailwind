@@ -1,6 +1,9 @@
-import React from 'react'
+import { useState } from "react"
+import { CSSTransition } from "react-transition-group";
 
 const DropdownMenu = () => {
+
+    const [activeMenu, setActiveMenu] = useState("main");
 
     const DropdownItem = (props) => {
         return (
@@ -14,8 +17,12 @@ const DropdownMenu = () => {
 
     return (
         <div className="dropdown">
-            <DropdownItem leftIcon="🥰" rightIcon="↕">Whatever</DropdownItem>
-            <DropdownItem>Whatever</DropdownItem>
+            <CSSTransition in={activeMenu === "main"} unmountOnExit className="menu-primary">
+                <div className="main">
+                    <DropdownItem leftIcon="🥰" rightIcon="↕">Whatever</DropdownItem>
+                    <DropdownItem>Whatever</DropdownItem>
+                </div>
+            </CSSTransition>
         </div>
     )
 }
