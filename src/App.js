@@ -1,3 +1,4 @@
+import "./index.css"
 import DropdownMenu from "./components/navbar/dropdownMenu/DropdownMenu";
 import Navbar from "./components/navbar/Navbar";
 import NavItem from "./components/navbar/navItem/NavItem";

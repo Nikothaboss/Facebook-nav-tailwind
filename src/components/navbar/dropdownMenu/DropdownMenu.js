@@ -1,9 +1,20 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { CSSTransition } from "react-transition-group";
 
 const DropdownMenu = () => {
 
     const [activeMenu, setActiveMenu] = useState("main");
+    const [menuHeight, setMenuHeight] = useState(null)
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
+    }, [])
+
+    const calcHeight = (element) => {
+        const height = element.offsetHeight;
+        setMenuHeight(height);
+    }
 
     const DropdownItem = (props) => {
         return (
@@ -16,16 +27,40 @@ const DropdownMenu = () => {
     }
 
     return (
-        <div className="dropdown">
-            <CSSTransition in={activeMenu === "main"} unmountOnExit timeout={500} className="menu-primary">
-                <div className="main">
-                    <DropdownItem leftIcon="🥰" rightIcon="↕" goToMenu="settings">Whatever</DropdownItem>
-                    <DropdownItem leftIcon="😏 " goToMenu="settings">Settings</DropdownItem>
+        <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
+
+            <CSSTransition
+                in={activeMenu === "main"}
+                unmountOnExit
+                timeout={500}
+                classNames="menu-primary"
+                onEnter={calcHeight}
+            >
+                <div className="menu">
+                    <DropdownItem
+                        leftIcon="🥰"
+                        rightIcon="↕"
+                        goToMenu="settings">Whatever</DropdownItem>
+                    <DropdownItem
+                        leftIcon="😏 "
+                        goToMenu="settings">Settings</DropdownItem>
                 </div>
             </CSSTransition>
 
-            <CSSTransition in={activeMenu === "settings"} timeout={500} unmountOnExit className="menu-secondary" >
-                <div className="main">
+            <CSSTransition
+                in={activeMenu === "settings"}
+                timeout={500}
+                unmountOnExit
+                classNames="menu-secondary"
+                onEnter={calcHeight}
+            >
+                <div className="menu">
+                    <DropdownItem goToMenu="main" leftIcon="↩ "></DropdownItem>
+                    <DropdownItem goToMenu="main"></DropdownItem>
+                    <DropdownItem goToMenu="main"></DropdownItem>
+                    <DropdownItem goToMenu="main"></DropdownItem>
+                    <DropdownItem goToMenu="main"></DropdownItem>
+                    <DropdownItem goToMenu="main"></DropdownItem>
                     <DropdownItem goToMenu="main"></DropdownItem>
                     <DropdownItem goToMenu="main"></DropdownItem>
                 </div>
